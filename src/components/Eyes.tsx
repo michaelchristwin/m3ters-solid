@@ -17,7 +17,6 @@ import {
   Sensor,
   Shade,
 } from "../parts/Eyes";
-import { Dynamic } from "solid-js/web";
 
 // Define the types object with explicit type
 const types = {
@@ -47,9 +46,11 @@ type EyesProps = {
 };
 
 export const Eyes: Component<EyesProps> = (props) => {
+  const EyeComponent = types[typeKeys[props.index]];
+
   return (
     <g id="eyes_part" transform="translate(38, 76)">
-      <Dynamic component={types[typeKeys[props.index]]} />
+      <EyeComponent />
     </g>
   );
 };

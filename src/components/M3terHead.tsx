@@ -1,4 +1,4 @@
-import { type Component } from "solid-js";
+import { createMemo, type Component } from "solid-js";
 import { Eyes } from "./Eyes";
 import { Mouth } from "./Mouth";
 import { Texture } from "./Texture";
@@ -10,7 +10,7 @@ type M3terHeadProps = {
 };
 
 export const M3terHead: Component<M3terHeadProps> = (p) => {
-  const props = m3terProps(p.seed);
+  const props = createMemo(() => m3terProps(p.seed));
 
   return (
     <svg
@@ -31,11 +31,11 @@ export const M3terHead: Component<M3terHeadProps> = (p) => {
         </g>
       </mask>
       <g mask="url(#facemask)">
-        <rect x="-20" y="-20" width="225" height="220" fill={props.color} />
-        <Texture index={props.textureIndex} />
+        <rect x="-20" y="-20" width="225" height="220" fill={props().color} />
+        <Texture index={props().textureIndex} />
       </g>
-      <Eyes index={props.eyesIndex} />
-      <Mouth index={props.mouthIndex} />
+      <Eyes index={props().eyesIndex} />
+      <Mouth index={props().mouthIndex} />
     </svg>
   );
 };
