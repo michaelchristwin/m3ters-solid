@@ -1,0 +1,40 @@
+{
+  "name": "m3ters-solid",
+  "main": "dist/index.cjs.js",
+  "version": "1.0.8",
+  "module": "dist/index.esm.js",
+  "author": {
+    "name": "@marquismikhail"
+  },
+  "license": "CC0-1.0",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.esm.js",
+    "require": "./dist/index.cjs.js",
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "prepare": "bun run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/rollup-plugin-peer-deps-external": "^2.2.5",
+    "rollup": "^4.34.8",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "^5.0.0",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.4"
+  },
+  "files": [
+    "dist"
+  ]
+}
