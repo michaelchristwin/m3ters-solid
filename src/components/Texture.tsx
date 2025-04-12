@@ -12,15 +12,15 @@ const types = {
 };
 const typeKeys = Object.keys(types) as (keyof typeof types)[];
 
-interface TextureProps {
-  type: number;
-}
+type TextureProps = {
+  index: number;
+};
 
 export const Texture: Component<TextureProps> = (props) => {
   return (
     <g id="texture_part" transform="translate(-10, 25) scale(1.3)">
-      <Show when={types[typeKeys[props.type]]}>
-        <Dynamic component={types[typeKeys[props.type]] || undefined} />
+      <Show when={types[typeKeys[props.index]]}>
+        <Dynamic component={types[typeKeys[props.index]] || undefined} />
       </Show>
     </g>
   );

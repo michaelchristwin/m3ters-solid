@@ -30,15 +30,15 @@ const types = {
 };
 const typeKeys = Object.keys(types) as (keyof typeof types)[];
 
-interface MouthProps {
-  type: number;
-}
+type MouthProps = {
+  index: number;
+};
 
 export const Mouth: Component<MouthProps> = (props) => {
   return (
     <g id="mouth_part" transform="translate(52, 124)">
-      <Show when={types[typeKeys[props.type]]}>
-        <Dynamic component={types[typeKeys[props.type]] || undefined} />
+      <Show when={types[typeKeys[props.index]]}>
+        <Dynamic component={types[typeKeys[props.index]] || undefined} />
       </Show>
     </g>
   );
